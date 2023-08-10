@@ -24,7 +24,13 @@ async function run() {
 
     const database2= client.db("marketplaceDB");
     const marketCollection = database2.collection("market");
+
+    const database3= client.db("scholarshipDB");
+    const scholarshipCollection = database3.collection("scholarship");
     
+
+    const database4= client.db("coursesDB");
+    const coursesCollection = database4.collection("courses");
 
     app.post("/student", async (req, res) => {
       const user = req.body;
@@ -53,6 +59,36 @@ async function run() {
       res.send(result);
 
     });
+
+    app.post("/scholarship", async (req, res) => {
+      const scholarshipData = req.body;
+      console.log(scholarshipData);
+      const result = await scholarshipCollection.insertOne(scholarshipData);
+      res.send(result);
+    });
+
+    app.get("/scholarship", async (req, res) => {
+      const cursor = scholarshipCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+
+    });
+
+    app.post("/courses", async (req, res) => {
+      const coursesData = req.body;
+      console.log(coursesData);
+      const result = await coursesCollection.insertOne(coursesData);
+      res.send(result);
+    });
+
+    app.get("/courses", async (req, res) => {
+      const cursor = coursesCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+
+    });
+
+
 
     await client.db("admin").command({ ping: 1 });
     console.log(

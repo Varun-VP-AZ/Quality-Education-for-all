@@ -10,9 +10,9 @@ import Home from "./pages/home";
 import Layout from "./components/layout";
 import Scholarship from "./pages/scholarship";
 import Login from "./pages/login";
+
 import Courses from "./pages/courses";
-import CardComponent from "./components/cardcomponent";
-import Aboutus from "./pages/aboutus";
+import Products from "./pages/product";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,8 +21,8 @@ const router = createBrowserRouter(
       <Route path="registration" element={<Signup />} />
       <Route path="scholarship" element={<CardComponent />} />
       <Route path="login" element={<Login />} />
-      <Route path="courses" element={<Courses />} />
-      <Route path="aboutus" element={<Aboutus />} />
+      <Route path="courses" element={<Courses/>}/>
+      <Route path="market" element={<Products/>}/>
     </Route>
   )
 );
