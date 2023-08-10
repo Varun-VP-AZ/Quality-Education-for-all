@@ -1,3 +1,5 @@
+import Footer from "../components/footer";
+
 export default function Signup() {
   return (
     <div>
@@ -55,6 +57,7 @@ export default function Signup() {
           Submit
         </button>
       </form>
+      <Footer />
     </div>
   );
 }

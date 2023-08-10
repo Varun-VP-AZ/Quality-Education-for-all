@@ -7,11 +7,11 @@ import {
 } from "react-router-dom";
 import Signup from "./pages/signup";
 import Home from "./pages/home";
-import Header from "./components/header";
+import Layout from "./components/layout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Header />}>
+    <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="registration" element={<Signup />} />
     </Route>
