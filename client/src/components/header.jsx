@@ -12,7 +12,6 @@ export default function Header() {
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
-
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -24,29 +23,26 @@ export default function Header() {
           </button>
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <Link
-            to="/"
-            className="text-sm font-semibold leading-6 text-white"
-          >
+          <Link to="/" className="text-sm font-semibold leading-6 text-white">
             Home
           </Link>
           <Link
             to="/forum"
             className="text-sm font-semibold leading-6 text-white"
           >
-            forums
+            Forums
           </Link>
           <Link
             to="/marketplace"
             className="text-sm font-semibold leading-6 text-white"
           >
-            marketplace
+            Marketplace
           </Link>
           <Link
-            to="/rest"
+            to="/scholarship"
             className="text-sm font-semibold leading-6 text-white"
           >
-            rest
+            Scholarship
           </Link>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
