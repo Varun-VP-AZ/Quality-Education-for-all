@@ -74,7 +74,7 @@ function Products() {
   };
 
   return (
-    <div className="image-gallery h-full  bg-gray-900 p-6">
+    <div className="image-gallery h-screen justify-center bg-gray-900 p-6 ml-3">
       <button
         onClick={toggleAddProductVisibility}
         className="bg-green-500 m-2 text-white py-2 px-4 rounded-lg hover:bg-green-600 fixed bottom-10 right-10 p-4"
@@ -83,7 +83,6 @@ function Products() {
       </button>
       {isAddProductVisible && (
         <div className="bg-white justify-center rounded-lg shadow-md p-4 flex flex-col">
-          {/* <h2 className="text-xl font-semibold mb-2"></h2> */}
           <input
             type="text"
             name="title"
@@ -179,7 +178,7 @@ function Products() {
           </div>
         </div>
       )}
-      <Footer/>
+
     </div>
   );
 }
