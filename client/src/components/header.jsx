@@ -36,7 +36,7 @@ export default function Header() {
             to="/market"
             className="text-sm font-semibold leading-6 text-white"
           >
-            Buy Cheap Books
+            Donate/Get Books
           </Link>
           <Link
             to="/scholarship"
