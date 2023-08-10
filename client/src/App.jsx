@@ -1,11 +1,33 @@
-import { useState } from 'react'
-import './index.css'
-function App() {
-  const [count, setCount] = useState(0)
+import "./index.css";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+import Signup from "./pages/signup";
+import Home from "./pages/home";
+import Header from "./components/header";
 
-  return (
-<h1 className="text-3xl font-bold underline text-red-500 text-center">Hello world!</h1> 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Header />}>
+      <Route index element={<Home />} />
+      <Route path="signup" element={<Signup />} />
+    </Route>
   )
+);
+
+function App() {
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
 }
 
-export default App
+// function App() {
+//   return <></>;
+// }
+
+export default App;
