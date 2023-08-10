@@ -1,16 +1,61 @@
-import { Link } from "react-router-dom";
-function Forum() {
+import React, { useState ,useEffect } from 'react'
+import {Link} from 'react-router-dom'
+
+const c = () => {
+  const [forum, setForum] = useState([]);
+  const [newForum, setNewForum] = useState({
+    title: "",
+    description: "",
+    author: " ",
+  });
+  useEffect(() => {
+    // Fetch data from the MongoDB server
+    fetch("http://localhost:5000/forum/c")
+      .then((response) => response.json())
+      .then((data) => setForum(data))
+      .catch((error) => console.error("Error fetching Forums:", error));
+  }, [newForum]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setNewForum((prevProduct) => ({
+      ...prevProduct,
+      [name]: value,
+    }));
+  };
+  
+  const addForum = () => {
+    // Send a POST request to add a new Forum
+    fetch("http://localhost:5000/forum/c", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newForum),
+    })
+      .then((response) => response.json())
+      .then((newForumData) => {
+        setForum([...forum, newForumData]);
+        setNewForum({
+            title: "",
+            description: "",
+            author: " ",
+        });
+      })
+      .catch((error) => console.error("Error adding Forum:", error));
+  };
   return (
+    <>
     <div>
-      <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+  <div className="max-w-screen-xl flex flex-wrap items-center  mx-auto p-4">
 
     <button data-collapse-toggle="navbar-solid-bg" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-solid-bg" aria-expanded="false">
     </button>
     <div className="hidden w-full h-full md:block md:w-auto" id="navbar-solid-bg">
       <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
         <li>
-          <Link to="/forum/" className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</Link>
+          <Link to="/forum/" className="block py-2 pl-3 pr-4 text-white  rounded md:bg-transparent md:dark:bg-transparent" aria-current="page">Home</Link>
         </li>
         <li>
           <Link to="/forum/mathematics" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Mathematics</Link>
@@ -55,71 +100,79 @@ function Forum() {
       </ul>
     </div>
   </div>
-  
 </nav>
-      <div className=" p-20 bg-gray-800">
-        {/* Discussion Threads */}
-        <div className="bg-white bg-gray-900shadow-md rounded-lg p-4">
-          {/* Single Thread */}
-          <div className="border-b border-gray-300 py-4">
-            <h2 className="text-lg font-semibold">Thread Title</h2>
-            <p className="text-gray-600">Posted by John Doe</p>
-            <p className="mt-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-            </p>
-          </div>
-          {/* Single Thread */}
-          <div className="border-b border-gray-300 py-4">
-            <h2 className="text-lg font-semibold">Another Thread Title</h2>
-            <p className="text-gray-600">Posted by Jane Smith</p>
-            <p className="mt-2">
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco...
-            </p>
-          </div>
-          {/* Add New Thread */}
-          <div className="mt-4">
-            <h2 className="text-lg font-semibold">Add a New Thread</h2>
-            <form className="mt-2">
-              <div className="mb-4">
-                <label
-                  htmlFor="threadTitle"
-                  className="block text-gray-700 font-semibold"
-                >
-                  Thread Title
-                </label>
-                <input
-                  type="text"
-                  id="threadTitle"
-                  name="threadTitle"
-                  className="w-full px-3 py-2 border rounded-lg"
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="threadContent"
-                  className="block text-gray-700 font-semibold"
-                >
-                  Thread Content
-                </label>
-                <textarea
-                  id="threadContent"
-                  name="threadContent"
-                  className="w-full px-3 py-2 border rounded-lg"
-                  defaultValue={""}
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+<div className='mt-5'>
+
+
+            {forum.map((image, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-md p-4 flex flex-col justify-between"
               >
-                Post Thread
-              </button>
-            </form>
+                <div className="border-b border-gray-300 py-4">
+            <h2 className="text-lg font-semibold">{image.title}</h2>
+            <p className="text-gray-600">Posted by {image.name}</p>
+            <p className="mt-2">
+             {image.description}
+            </p>
           </div>
-        </div>
-      </div>
+
+              </div>
+            ))}
     </div>
-  );
+
+    </div>
+
+<div className=" pt-5 mt-5">
+<h2
+              htmlFor="title"
+              className="block text-gray-700 font-semibold justify-center text-center"
+            >
+              Engage your Own Thread!
+            </h2>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              className="w-full px-3 py-2 border rounded-lg"
+            />
+
+          </div>
+          <div className="bg-white justify-center rounded-lg shadow-md p-4 flex flex-col">
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            value={newForum.title}
+            onChange={handleInputChange}
+            className="w-full rounded-md p-2 mb-2"
+          />
+                    <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={newForum.name}
+            onChange={handleInputChange}
+            className="w-full rounded-md p-2 mb-2"
+          />
+          <input
+            type="text"
+            name="description"
+            placeholder="Description"
+            value={newForum.description}
+            onChange={handleInputChange}
+            className="w-full rounded-md p-2 mb-2"
+          />
+
+          <button
+            onClick={addForum}
+            className="bg-green-500 text-white py-2 px-4 rounded-lg text-xl hover:bg-green-600"
+          >
+            Post Thread
+          </button>
+        </div>
+          </>
+  )
 }
 
-export default Forum;
+export default c
