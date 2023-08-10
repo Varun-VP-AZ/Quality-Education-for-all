@@ -170,7 +170,7 @@ function Products() {
                   </div>
                 </div>
                 <button className="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">
-                  make a deal
+                  Get Book
                 </button>
               </div>
             ))}

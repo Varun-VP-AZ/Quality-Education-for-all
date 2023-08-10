@@ -1,52 +1,52 @@
 import { useState, useEffect } from "react";
 // import './index.css';
 
-function Products() {
+function Scholarship() {
   const [images, setImages] = useState([]);
-  const [newProduct, setNewProduct] = useState({
+  const [newScholarship, setNewScholarship] = useState({
     title: "",
     description: "",
-    price: "",
+    benefit: "",
     location: "",
     url: "",
   });
 
   const [filterLocation, setFilterLocation] = useState("");
   const [searchItem, setSearchItem] = useState("");
-  const [isAddProductVisible, setIsAddProductVisible] = useState(false);
-  const [isProductVisible, setIsProductVisible] = useState(true);
+  const [isAddScholarshipVisible, setIsAddScholarshipVisible] = useState(false);
+  const [isScholarshipVisible, setIsScholarshipVisible] = useState(true);
 
   useEffect(() => {
     // Fetch data from the local JSON server
-    fetch("http://localhost:5000/market")
+    fetch("http://localhost:5000/scholarship")
       .then((response) => response.json())
       .then((data) => setImages(data))
       .catch((error) => console.error("Error fetching images:", error));
-  }, [newProduct]);
+  }, [newScholarship]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setNewProduct((prevProduct) => ({
-      ...prevProduct,
+    setNewScholarship((prevScholarship) => ({
+      ...prevScholarship,
       [name]: value,
     }));
   };
 
-  const addProduct = () => {
-    // Send a POST request to add a new product
-    fetch("http://localhost:5000/market", {
+  const addScholarship = () => {
+    // Send a POST request to add a new Scholarship
+    fetch("http://localhost:5000/scholarship", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newProduct),
+      body: JSON.stringify(newScholarship),
     })
       .then((response) => response.json())
-      .then((newProductData) => {
-        // Update the images state with the new product
-        setImages([...images, newProductData]);
+      .then((newScholarshipData) => {
+        // Update the images state with the new Scholarship
+        setImages([...images, newScholarshipData]);
         // Clear the input fields
-        setNewProduct({
+        setNewScholarship({
           title: "",
           description: "",
           price: "",
@@ -55,7 +55,7 @@ function Products() {
         });
 
       })
-      .catch((error) => console.error("Error adding product:", error));
+      .catch((error) => console.error("Error adding Scholarship:", error));
   };
 
   const filteredImages = images.filter((image) => {
@@ -68,27 +68,27 @@ function Products() {
     return locationMatch && itemMatch;
   });
 
-  const toggleAddProductVisibility = () => {
-    setIsAddProductVisible(!isAddProductVisible);
-    setIsProductVisible(!isProductVisible);
+  const toggleAddScholarshipVisibility = () => {
+    setIsAddScholarshipVisible(!isAddScholarshipVisible);
+    setIsScholarshipVisible(!isScholarshipVisible);
   };
 
   return (
     <div className="image-gallery h-full  bg-gray-900 p-6">
       <button
-        onClick={toggleAddProductVisibility}
+        onClick={toggleAddScholarshipVisibility}
         className="bg-green-500 m-2 text-white py-2 px-4 rounded-lg hover:bg-green-600 fixed bottom-10 right-10 p-4"
       >
-        {isAddProductVisible ? "Hide" : "Sell Here"}
+        {isAddScholarshipVisible ? "Hide" : "Sell Here"}
       </button>
-      {isAddProductVisible && (
+      {isAddScholarshipVisible && (
         <div className="bg-white justify-center rounded-lg shadow-md p-4 flex flex-col">
           {/* <h2 className="text-xl font-semibold mb-2"></h2> */}
           <input
             type="text"
             name="title"
             placeholder="Title"
-            value={newProduct.title}
+            value={newScholarship.title}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
@@ -96,7 +96,7 @@ function Products() {
             type="text"
             name="description"
             placeholder="Description"
-            value={newProduct.description}
+            value={newScholarship.description}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
@@ -104,7 +104,7 @@ function Products() {
             type="text"
             name="price"
             placeholder="Price"
-            value={newProduct.price}
+            value={newScholarship.price}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
@@ -112,7 +112,7 @@ function Products() {
             type="text"
             name="location"
             placeholder="Location"
-            value={newProduct.location}
+            value={newScholarship.location}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
@@ -120,19 +120,19 @@ function Products() {
             type="text"
             name="url"
             placeholder="Image URL"
-            value={newProduct.url}
+            value={newScholarship.url}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
           <button
-            onClick={addProduct}
+            onClick={addScholarship}
             className="bg-green-500 text-white py-2 px-4 rounded-lg text-xl hover:bg-green-600"
           >
             Sell Here
           </button>
         </div>
       )}
-      {isProductVisible && (
+      {isScholarshipVisible && (
         <div>
           <div className=" flex mt-4 mb-4 space-x-4">
             <input
@@ -183,4 +183,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default Scholarship;
