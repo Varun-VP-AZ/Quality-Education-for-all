@@ -21,8 +21,11 @@ async function run() {
     await client.connect();
     const database = client.db("studentsDB");
     const studentCollection = database.collection("students");
+
+    const database2= client.db("marketplaceDB");
+    const marketCollection = database2.collection("market");
     
-    
+
     app.post("/student", async (req, res) => {
       const user = req.body;
       console.log(user);
@@ -32,6 +35,20 @@ async function run() {
 
     app.get("/student", async (req, res) => {
       const cursor = studentCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+
+    });
+
+    app.post("/market", async (req, res) => {
+      const marketData = req.body;
+      console.log(marketData);
+      const result = await marketCollection.insertOne(marketData);
+      res.send(result);
+    });
+
+    app.get("/market", async (req, res) => {
+      const cursor = marketCollection.find();
       const result = await cursor.toArray();
       res.send(result);
 
