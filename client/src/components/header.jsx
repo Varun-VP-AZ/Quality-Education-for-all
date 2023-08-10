@@ -44,21 +44,27 @@ export default function Header() {
           >
             Scholarship
           </Link>
+          <Link
+            to="/aboutus"
+            className="text-sm font-semibold leading-6 text-white"
+          >
+            About Us
+          </Link>
         </Popover.Group>
 
         <div className="">
-        <Link
+          <Link
             to="/registration"
             className="text-sm font-semibold leading-6 m-4 text-white"
           >
             Sign up
           </Link>
-        
+
           <Link
             to="/login"
             className="text-sm font-semibold leading-6 text-white"
           >
-           Sign In
+            Sign In
           </Link>
         </div>
       </nav>

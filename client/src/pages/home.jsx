@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Footer from "../components/footer";
 
 export default function Home() {
@@ -26,33 +27,36 @@ export default function Home() {
           </svg>
           <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Boost your productivity.
-              <br />
-              Start using our app today.
+              Making education available for all.
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
-              Malesuada adipiscing sagittis vel nulla.
+              At Education for All, we believe that education is a fundamental
+              right, not a privilege. We're on a mission to make high-quality
+              education accessible to every individual, regardless of their
+              background, location, or financial situation. Our commitment to
+              this vision has driven us to create a platform that opens the
+              doors to a world of knowledge and empowers individuals to reach
+              their full potential.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-              <a
-                href="#"
+              <Link
+                to="/forums"
                 className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Get started
-              </a>
-              <a
-                href="#"
+                Forums
+              </Link>
+              <Link
+                to="#"
                 className="text-sm font-semibold leading-6 text-white"
               >
                 Learn more <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="relative mt-16 h-80 lg:mt-8">
             <img
-              className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
-              src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
+              className="absolute left-0 top-0 w-[40rem] max-w-none md:shrink-0 rounded-lg pt-24 pr-14"
+              src="https://i.dailymail.co.uk/i/pix/2015/05/06/01/285A9AFA00000578-3069290-image-a-1_1430872936399.jpg"
               alt="App screenshot"
               width={1824}
               height={1080}
