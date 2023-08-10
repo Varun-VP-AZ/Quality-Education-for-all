@@ -9,6 +9,7 @@ import Signup from "./pages/signup";
 import Home from "./pages/home";
 import Layout from "./components/layout";
 import Scholarship from "./pages/scholarship";
+import Login from "./pages/login";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="registration" element={<Signup />} />
       <Route path="scholarship" element={<Scholarship />} />
+      <Route path="login" element={<Login />} />
     </Route>
   )
 );
@@ -27,9 +29,5 @@ function App() {
     </>
   );
 }
-
-// function App() {
-//   return <></>;
-// }
 
 export default App;
