@@ -19,8 +19,8 @@ export default function Home() {
             />
             <defs>
               <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-                <stop stopColor="#7775D6" />
-                <stop offset={1} stopColor="#E935C1" />
+                <stop stopColor="#47fc56" />
+                <stop offset={1} stopColor="#47fc56" />
               </radialGradient>
             </defs>
           </svg>
