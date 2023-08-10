@@ -24,6 +24,9 @@ async function run() {
 
     const database2= client.db("marketplaceDB");
     const marketCollection = database2.collection("market");
+
+    const database3= client.db("scholarshipDB");
+    const scholarshipCollection = database3.collection("scholarship");
     
 
     app.post("/student", async (req, res) => {
@@ -54,6 +57,19 @@ async function run() {
 
     });
 
+    app.post("/scholarship", async (req, res) => {
+      const scholarshipData = req.body;
+      console.log(scholarshipData);
+      const result = await scholarshipCollection.insertOne(scholarshipData);
+      res.send(result);
+    });
+
+    app.get("/scholarship", async (req, res) => {
+      const cursor = scholarshipCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+
+    });
     await client.db("admin").command({ ping: 1 });
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
