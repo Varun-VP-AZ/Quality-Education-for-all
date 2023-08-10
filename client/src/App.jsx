@@ -10,6 +10,7 @@ import Home from "./pages/home";
 import Layout from "./components/layout";
 import Scholarship from "./pages/scholarship";
 import Login from "./pages/login";
+import Courses from "./pages/courses";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
       <Route path="registration" element={<Signup />} />
       <Route path="scholarship" element={<Scholarship />} />
       <Route path="login" element={<Login />} />
+      <Route path="courses" element={<Courses/>}/>
     </Route>
   )
 );
