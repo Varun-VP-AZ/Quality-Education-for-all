@@ -10,7 +10,9 @@ import Home from "./pages/home";
 import Layout from "./components/layout";
 import Scholarship from "./pages/scholarship";
 import Login from "./pages/login";
+
 import Courses from "./pages/courses";
+import Products from "./pages/product";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +22,7 @@ const router = createBrowserRouter(
       <Route path="scholarship" element={<Scholarship />} />
       <Route path="login" element={<Login />} />
       <Route path="courses" element={<Courses/>}/>
+      <Route path="market" element={<Products/>}/>
     </Route>
   )
 );

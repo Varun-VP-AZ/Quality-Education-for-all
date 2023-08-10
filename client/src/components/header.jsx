@@ -33,7 +33,7 @@ export default function Header() {
             Forums
           </Link>
           <Link
-            to="/marketplace"
+            to="/market"
             className="text-sm font-semibold leading-6 text-white"
           >
             Marketplace
