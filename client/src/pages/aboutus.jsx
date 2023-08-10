@@ -12,15 +12,15 @@ export default function Aboutus() {
           >
             <circle
               cx={512}
-              cy={512}
-              r={512}
+              cy={1012}
+              r={1012}
               fill="url(#759c1415-0410-454c-8f7c-9a820de03641)"
               fillOpacity="0.7"
             />
             <defs>
               <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-                <stop stopColor="#47fc56" />
-                <stop offset={1} stopColor="#47fc56" />
+                <stop stopColor="#0c4d02" />
+                <stop offset={1} stopColor="#0c4d02" />
               </radialGradient>
             </defs>
           </svg>
@@ -32,13 +32,12 @@ export default function Aboutus() {
               Making education available for all.
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              We believe that education is a fundamental
-              right, not a privilege. We're on a mission to make high-quality
-              education accessible to every individual, regardless of their
-              background, location, or financial situation. Our commitment to
-              this vision has driven us to create a platform that opens the
-              doors to a world of knowledge and empowers individuals to reach
-              their full potential.
+              We believe that education is a fundamental right, not a privilege.
+              We're on a mission to make high-quality education accessible to
+              every individual, regardless of their background, location, or
+              financial situation. Our commitment to this vision has driven us
+              to create a platform that opens the doors to a world of knowledge
+              and empowers individuals to reach their full potential.
             </p>
 
             <h2 className="mt-6 text-lg leading-8 text-gray-300">
@@ -105,14 +104,6 @@ export default function Aboutus() {
                 Our interactive platform brings the classroom experience to your
                 screen. Engage with instructors, participate in discussions, and
                 collaborate with fellow learners from across the globe.
-              </li>
-              <li className="mt-6 text-lg leading-8 text-gray-300">
-                <strong className="mt-6 text-lg leading-8 text-gray-300">
-                  Certifications:
-                </strong>{" "}
-                Earn valuable certifications that can enhance your career
-                prospects or simply showcase your expertise. Our certificates
-                are recognized by industry leaders and institutions.
               </li>
               <li className="mt-6 text-lg leading-8 text-gray-300">
                 <strong className="mt-6 text-lg leading-8 text-gray-300">

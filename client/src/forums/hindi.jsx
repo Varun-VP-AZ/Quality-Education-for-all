@@ -1,5 +1,5 @@
-import React, { useState ,useEffect } from 'react'
-import {Link} from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const hindi = () => {
   const [forum, setForum] = useState([]);
@@ -23,7 +23,7 @@ const hindi = () => {
       [name]: value,
     }));
   };
-  
+
   const addForum = () => {
     // Send a POST request to add a new Forum
     fetch("http://localhost:5000/forum/hindi", {
@@ -37,9 +37,9 @@ const hindi = () => {
       .then((newForumData) => {
         setForum([...forum, newForumData]);
         setNewForum({
-            title: "",
-            description: "",
-            author: " ",
+          title: "",
+          description: "",
+          author: " ",
         });
       })
       .catch((error) => console.error("Error adding Forum:", error));
@@ -121,56 +121,55 @@ const hindi = () => {
 
     </div>
 
-<div className=" pt-5 mt-5">
-<h2
-              htmlFor="title"
-              className="block text-gray-700 font-semibold justify-center text-center"
-            >
-              Engage your Own Thread!
-            </h2>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              className="w-full px-3 py-2 border rounded-lg"
-            />
+      <div className=" pt-5 mt-5">
+        <h2
+          htmlFor="title"
+          className="block text-gray-700 font-semibold justify-center text-center"
+        >
+          Engage your Own Thread!
+        </h2>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          className="w-full px-3 py-2 border rounded-lg"
+        />
+      </div>
+      <div className="bg-white justify-center rounded-lg shadow-md p-4 flex flex-col">
+        <input
+          type="text"
+          name="title"
+          placeholder="Title"
+          value={newForum.title}
+          onChange={handleInputChange}
+          className="w-full rounded-md p-2 mb-2"
+        />
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={newForum.name}
+          onChange={handleInputChange}
+          className="w-full rounded-md p-2 mb-2"
+        />
+        <input
+          type="text"
+          name="description"
+          placeholder="Description"
+          value={newForum.description}
+          onChange={handleInputChange}
+          className="w-full rounded-md p-2 mb-2"
+        />
 
-          </div>
-          <div className="bg-white justify-center rounded-lg shadow-md p-4 flex flex-col">
-          <input
-            type="text"
-            name="title"
-            placeholder="Title"
-            value={newForum.title}
-            onChange={handleInputChange}
-            className="w-full rounded-md p-2 mb-2"
-          />
-                    <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={newForum.name}
-            onChange={handleInputChange}
-            className="w-full rounded-md p-2 mb-2"
-          />
-          <input
-            type="text"
-            name="description"
-            placeholder="Description"
-            value={newForum.description}
-            onChange={handleInputChange}
-            className="w-full rounded-md p-2 mb-2"
-          />
+        <button
+          onClick={addForum}
+          className="bg-green-500 text-white py-2 px-4 rounded-lg text-xl hover:bg-green-600"
+        >
+          Post Thread
+        </button>
+      </div>
+    </>
+  );
+};
 
-          <button
-            onClick={addForum}
-            className="bg-green-500 text-white py-2 px-4 rounded-lg text-xl hover:bg-green-600"
-          >
-            Post Thread
-          </button>
-        </div>
-          </>
-  )
-}
-
-export default hindi
+export default hindi;

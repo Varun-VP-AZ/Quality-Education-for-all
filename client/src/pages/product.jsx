@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-
 function Products() {
   const [images, setImages] = useState([]);
   const [newProduct, setNewProduct] = useState({
@@ -73,7 +72,7 @@ function Products() {
   };
 
   return (
-    <div className="image-gallery h-screen justify-center bg-gray-900 p-6 ml-3">
+    <div className="bg-gray-900 pt-5 pl-5 pr-5">
       <button
         onClick={toggleAddProductVisibility}
         className="bg-green-500 m-2 text-white py-2 px-4 rounded-lg hover:bg-green-600 fixed bottom-10 right-10 p-4"
@@ -95,14 +94,6 @@ function Products() {
             name="description"
             placeholder="Description"
             value={newProduct.description}
-            onChange={handleInputChange}
-            className="w-full rounded-md p-2 mb-2"
-          />
-          <input
-            type="text"
-            name="price"
-            placeholder="Price"
-            value={newProduct.price}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
@@ -177,7 +168,6 @@ function Products() {
           </div>
         </div>
       )}
-
     </div>
   );
 }
