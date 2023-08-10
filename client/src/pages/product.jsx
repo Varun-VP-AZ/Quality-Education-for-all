@@ -15,7 +15,7 @@ function Products() {
     const [searchItem, setSearchItem] = useState('');
 
     useEffect(() => {
-        // Fetch data from the local JSON server
+        // Fetch data from mongoDB server
         fetch('http://localhost:5000/market')
             .then(response => response.json())
             .then(data => setImages(data))

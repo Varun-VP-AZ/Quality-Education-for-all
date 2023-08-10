@@ -16,7 +16,7 @@ function Scholarships() {
     const [searchItem, setSearchItem] = useState('');
 
     useEffect(() => {
-        // Fetch data from the local JSON server
+        // Fetch data from the mongoDB server
         fetch('http://localhost:5000/scholarship')
             .then(response => response.json())
             .then(data => setImages(data))
