@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-
+import { useState, useEffect } from 'react';
+// import './index.css';
 
 function Products() {
     const [images, setImages] = useState([]);
@@ -13,9 +13,13 @@ function Products() {
 
     const [filterLocation, setFilterLocation] = useState('');
     const [searchItem, setSearchItem] = useState('');
+    const [isAddProductVisible, setIsAddProductVisible] = useState(false);
+    const [isProductVisible, setIsProductVisible] = useState(true);
+    
+
 
     useEffect(() => {
-        // Fetch data from mongoDB server
+        // Fetch data from the local JSON server
         fetch('http://localhost:5000/market')
             .then(response => response.json())
             .then(data => setImages(data))
@@ -61,9 +65,23 @@ function Products() {
         return locationMatch && itemMatch;
     });
 
+    const toggleAddProductVisibility = () => {
+        setIsAddProductVisible(!isAddProductVisible);
+        setIsProductVisible(!isProductVisible);
+
+      };
+
+
+
     return (
         <div className="image-gallery bg-gray-100 p-6">
+              <button onClick={toggleAddProductVisibility} className="bg-green-500 m-2 text-white py-2 px-4 rounded-lg hover:bg-green-600 fixed bottom-10 right-10 p-4">
+        {isAddProductVisible ? 'Hide' : 'Sell Here'}
+      </button>
+      {isAddProductVisible && (
+
             <div className="bg-white rounded-lg shadow-md p-4 flex flex-col justify-between">
+            {/* <h2 className="text-xl font-semibold mb-2"></h2> */}
                 <input
                     type="text"
                     name="title"
@@ -104,23 +122,24 @@ function Products() {
                     onChange={handleInputChange}
                     className="w-full rounded-md p-2 mb-2"
                 />
-                <button onClick={addProduct} className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">Add Product</button>
-            </div>
-            <h1 className="text-2xl font-bold m-4">Available Products</h1>
-            <div className="flex mb-4 space-x-4">
+                <button onClick={addProduct} className="bg-green-500 text-white py-2 px-4 rounded-lg text-xl hover:bg-green-600">Sell Here</button>
+            </div> )}
+            {isProductVisible && (
+                <div>
+            <div className=" flex mt-4 mb-4 space-x-4">
                 <input
                     type="text"
                     placeholder="Filter by location"
                     value={filterLocation}
                     onChange={e => setFilterLocation(e.target.value)}
-                    className="rounded-md p-2 w-1/2"
+                    className=" placeholder-gray-800 rounded-md p-2 w-1/2"
                 />
                 <input
                     type="text"
                     placeholder="Search by item"
                     value={searchItem}
                     onChange={e => setSearchItem(e.target.value)}
-                    className="rounded-md p-2 w-1/2"
+                    className=" placeholder-gray-800 rounded-md p-2 w-1/2"
                 />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -140,11 +159,12 @@ function Products() {
                         <button className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">make a deal</button>
                     </div>
                 ))}
+
             </div>
-            <div className="mt-6">
-                <h2 className="text-xl font-semibold mb-2">Add New Product</h2>
-                {/* ... Input fields for adding a new product ... */}
             </div>
+            )}
+
+
         </div>
     );
 }
