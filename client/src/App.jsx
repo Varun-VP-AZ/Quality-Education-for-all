@@ -11,15 +11,18 @@ import Layout from "./components/layout";
 import Scholarship from "./pages/scholarship";
 import Login from "./pages/login";
 import Courses from "./pages/courses";
+import CardComponent from "./components/cardcomponent";
+import Aboutus from "./pages/aboutus";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="registration" element={<Signup />} />
-      <Route path="scholarship" element={<Scholarship />} />
+      <Route path="scholarship" element={<CardComponent />} />
       <Route path="login" element={<Login />} />
-      <Route path="courses" element={<Courses/>}/>
+      <Route path="courses" element={<Courses />} />
+      <Route path="aboutus" element={<Aboutus />} />
     </Route>
   )
 );
