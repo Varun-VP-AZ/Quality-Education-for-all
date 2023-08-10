@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import Footer from "../components/footer";
-// import './index.css';
+
 
 function Products() {
   const [images, setImages] = useState([]);

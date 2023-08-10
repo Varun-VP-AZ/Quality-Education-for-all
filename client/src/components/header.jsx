@@ -45,6 +45,12 @@ export default function Header() {
             Scholarship
           </Link>
           <Link
+            to="/courses"
+            className="text-sm font-semibold leading-6 text-white"
+          >
+            Courses
+          </Link>
+          <Link
             to="/aboutus"
             className="text-sm font-semibold leading-6 text-white"
           >
