@@ -135,7 +135,7 @@ function Scholarships() {
                             <h2 className="text-lg font-semibold mb-1">{image.title}</h2>
                             <p className="text-gray-700 mb-2">{image.description}</p>
                             <div className="flex justify-between items-center">
-                                <h2 className="text-lg font-semibold">{image.price}</h2>
+                                <h2 className="text-lg font-semibold">{image.benefits}</h2>
                                 <h2 className="text-lg text-gray-600">{image.location}</h2>
                             </div>
                         </div>
