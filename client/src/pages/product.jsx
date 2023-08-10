@@ -53,7 +53,6 @@ function Products() {
           location: "",
           url: "",
         });
-
       })
       .catch((error) => console.error("Error adding product:", error));
   };
