@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-
 function Products() {
   const [images, setImages] = useState([]);
   const [newProduct, setNewProduct] = useState({
@@ -95,14 +94,6 @@ function Products() {
             name="description"
             placeholder="Description"
             value={newProduct.description}
-            onChange={handleInputChange}
-            className="w-full rounded-md p-2 mb-2"
-          />
-          <input
-            type="text"
-            name="price"
-            placeholder="Price"
-            value={newProduct.price}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
