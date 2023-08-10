@@ -13,6 +13,7 @@ import Login from "./pages/login";
 import Courses from "./pages/courses";
 import Products from "./pages/product";
 import Aboutus from "./pages/aboutus";
+import Forum from "./pages/forum";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="courses" element={<Courses />} />
       <Route path="market" element={<Products />} />
       <Route path="/aboutus" element={<Aboutus />} />
+      <Route path="/forum" element={<Forum />} />
     </Route>
   )
 );
