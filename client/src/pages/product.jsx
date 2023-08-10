@@ -17,7 +17,7 @@ function Products() {
   const [isProductVisible, setIsProductVisible] = useState(true);
 
   useEffect(() => {
-    // Fetch data from the local JSON server
+    // Fetch data from the MongoDB server
     fetch("http://localhost:5000/market")
       .then((response) => response.json())
       .then((data) => setImages(data))
