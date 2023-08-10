@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Footer from "../components/footer";
 // import './index.css';
 
 function Products() {
@@ -74,7 +73,7 @@ function Products() {
   };
 
   return (
-    <div className="image-gallery h-screen justify-center bg-gray-900 p-6 ml-3">
+    <div className="bg-gray-900 pt-5 pl-5 pr-5">
       <button
         onClick={toggleAddProductVisibility}
         className="bg-green-500 m-2 text-white py-2 px-4 rounded-lg hover:bg-green-600 fixed bottom-10 right-10 p-4"
@@ -178,7 +177,6 @@ function Products() {
           </div>
         </div>
       )}
-
     </div>
   );
 }
