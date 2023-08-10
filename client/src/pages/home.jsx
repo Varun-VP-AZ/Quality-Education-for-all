@@ -46,7 +46,7 @@ export default function Home() {
                 Forums
               </Link>
               <Link
-                to="#"
+                to="/aboutus"
                 className="text-sm font-semibold leading-6 text-white"
               >
                 Learn more <span aria-hidden="true">→</span>
