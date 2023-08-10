@@ -49,12 +49,20 @@ export default function Header() {
             rest
           </Link>
         </Popover.Group>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link
+
+        <div className="">
+        <Link
             to="/registration"
-            className="text-sm font-semibold leading-6 text-white"
+            className="text-sm font-semibold leading-6 m-4 text-white"
           >
             Sign up
+          </Link>
+        
+          <Link
+            to="/login"
+            className="text-sm font-semibold leading-6 text-white"
+          >
+           Sign In
           </Link>
         </div>
       </nav>
