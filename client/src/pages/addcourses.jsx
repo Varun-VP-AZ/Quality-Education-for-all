@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 function AddCourse() {
   const [Courses, setCourses] = useState([]);
-  const [newProduct, setNewProduct] = useState({
+  const [newCourse, setNewCourse] = useState({
     title: "",
     description: "",
     faculty: "",
@@ -19,31 +19,31 @@ function AddCourse() {
       .then((response) => response.json())
       .then((data) => setCourses(data))
       .catch((error) => console.error("Error fetching Courses:", error));
-  }, [newProduct]);
+  }, [newCourse]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setNewProduct((prevProduct) => ({
-      ...prevProduct,
+    setNewCourse((prevCourse) => ({
+      ...prevCourse,
       [name]: value,
     }));
   };
 
-  const addProduct = () => {
-    // Send a POST request to add a new product
+  const addCourse = () => {
+    // Send a POST request to add a new Course
     fetch("http://localhost:5000/courses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newProduct),
+      body: JSON.stringify(newCourse),
     })
       .then((response) => response.json())
-      .then((newProductData) => {
-        // Update the Courses state with the new product
-        setCourses([...Courses, newProductData]);
+      .then((newCourseData) => {
+        // Update the Courses state with the new Course
+        setCourses([...Courses, newCourseData]);
         // Clear the input fields
-        setNewProduct({
+        setNewCourse({
             title: "",
             description: "",
             faculty: "",
@@ -53,7 +53,7 @@ function AddCourse() {
             url: "",
         });
       })
-      .catch((error) => console.error("Error adding product:", error));
+      .catch((error) => console.error("Error adding Course:", error));
   };
 
 
@@ -65,7 +65,7 @@ function AddCourse() {
             type="text"
             name="title"
             placeholder="Title"
-            value={newProduct.title}
+            value={newCourse.title}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
@@ -73,7 +73,7 @@ function AddCourse() {
             type="text"
             name="description"
             placeholder="Description"
-            value={newProduct.description}
+            value={newCourse.description}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
@@ -81,7 +81,7 @@ function AddCourse() {
             type="text"
             name="faculty"
             placeholder="Faculty"
-            value={newProduct.faculty}
+            value={newCourse.faculty}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
@@ -89,7 +89,7 @@ function AddCourse() {
             type="text"
             name="language"
             placeholder="Language"
-            value={newProduct.language}
+            value={newCourse.language}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
@@ -97,7 +97,7 @@ function AddCourse() {
             type="text"
             name="subject"
             placeholder="Subject"
-            value={newProduct.subject}
+            value={newCourse.subject}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
@@ -105,7 +105,7 @@ function AddCourse() {
             type="text"
             name="date"
             placeholder="Date"
-            value={newProduct.date}
+            value={newCourse.date}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
@@ -113,12 +113,12 @@ function AddCourse() {
             type="text"
             name="url"
             placeholder="Course URL"
-            value={newProduct.url}
+            value={newCourse.url}
             onChange={handleInputChange}
             className="w-full rounded-md p-2 mb-2"
           />
           <button
-            onClick={addProduct}
+            onClick={addCourse}
             className="bg-green-500 text-white py-2 px-4 rounded-lg text-xl hover:bg-green-600"
           >
             Add Course

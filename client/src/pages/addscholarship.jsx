@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 // import './index.css';
 
 function AddScholarship() {
-  const [images, setImages] = useState([]);
+  const [scholarship, setscholarship] = useState([]);
   const [newScholarship, setNewScholarship] = useState({
     title: "",
     description: "",
@@ -31,8 +31,8 @@ function AddScholarship() {
     })
       .then((response) => response.json())
       .then((newScholarshipData) => {
-        // Update the images state with the new Scholarship
-        setImages([...images, newScholarshipData]);
+        // Update the scholarship state with the new Scholarship
+        setscholarship([...scholarship, newScholarshipData]);
         // Clear the input fields
         setNewScholarship({
           title: "",
