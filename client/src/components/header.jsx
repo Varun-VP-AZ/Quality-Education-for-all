@@ -56,22 +56,23 @@ export default function Header() {
           </Link>
           {isAuthenticated ? (
             <>
-                      <Link
-                      to="/addscholarship"
-                      className="text-sm font-semibold leading-6 text-white"
-                    >
-                      Add Scholarship
-                    </Link>
-                    <Link
-                      to="/addcourses"
-                      className="text-sm font-semibold leading-6 text-white"
-                    >
-                     Add Courses
-                    </Link>
-                    </>
-          ):(<> </>)
-}
-        
+              <Link
+                to="/addscholarship"
+                className="text-sm font-semibold leading-6 text-white"
+              >
+                Add Scholarship
+              </Link>
+              <Link
+                to="/addcourses"
+                className="text-sm font-semibold leading-6 text-white"
+              >
+                Add Courses
+              </Link>
+            </>
+          ) : (
+            <> </>
+          )}
+
           <Link
             to="/aboutus"
             className="text-sm font-semibold leading-6 text-white"
@@ -82,24 +83,23 @@ export default function Header() {
 
         <div className="">
           {isAuthenticated ? (
-              <button
-                className="mx-1 btn btn-outline-light my-2 my-sm-0"
-                type="submit"
-                onClick={()=>logout({ logoutParams: { returnTo: window.location.origin } })
-                }
-              >
-                Log Out
-              </button>
+            <button
+              className="mx-1 btn btn-outline-light my-2 my-sm-0"
+              type="submit"
+              onClick={() =>
+                logout({ logoutParams: { returnTo: window.location.origin } })
+              }
+            >
+              Log Out
+            </button>
           ) : (
-            
-              <p
-                className="mx-1 btn btn-outline-light cursor-pointer my-2 my-sm-0"
-                type="submit"
-                onClick={()=>loginWithRedirect()}
-              >
-                Admin Login
-              </p>
-            
+            <p
+              className="text-sm font-semibold leading-6 text-white mx-1 btn btn-outline-light cursor-pointer my-2 my-sm-0"
+              type="submit"
+              onClick={() => loginWithRedirect()}
+            >
+              Admin Login
+            </p>
           )}
           {/* <Link
             to="/login"
