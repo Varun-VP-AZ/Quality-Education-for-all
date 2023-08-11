@@ -28,6 +28,8 @@ import Communication from "./forums/communication";
 import Management from "./forums/management";
 import Physics from "./forums/physics";
 import Hindi from "./forums/hindi";
+import AddCourse from "./pages/addcourses";
+import AddScholarship from "./pages/addscholarship";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -37,6 +39,8 @@ const router = createBrowserRouter(
       <Route path="scholarship" element={<Scholarship />} />
       <Route path="login" element={<Login />} />
       <Route path="courses" element={<Courses />} />
+      <Route path="addcourses" element={<AddCourse/>}/>
+      <Route path="addscholarship" element={<AddScholarship/>}/>
       <Route path="market" element={<Products />} />
       <Route path="aboutus" element={<Aboutus />} />
       <Route path="forum" element={<Forum />} />

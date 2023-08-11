@@ -13,8 +13,6 @@ function Scholarship() {
 
   const [filterLocation, setFilterLocation] = useState("");
   const [searchItem, setSearchItem] = useState("");
-  const [isAddScholarshipVisible, setIsAddScholarshipVisible] = useState(false);
-  const [isScholarshipVisible, setIsScholarshipVisible] = useState(true);
 
   useEffect(() => {
     // Fetch data from the local JSON server
@@ -32,31 +30,6 @@ function Scholarship() {
     }));
   };
 
-  const addScholarship = () => {
-    // Send a POST request to add a new Scholarship
-    fetch("http://localhost:5000/scholarship", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newScholarship),
-    })
-      .then((response) => response.json())
-      .then((newScholarshipData) => {
-        // Update the images state with the new Scholarship
-        setImages([...images, newScholarshipData]);
-        // Clear the input fields
-        setNewScholarship({
-          title: "",
-          description: "",
-          price: "",
-          location: "",
-          url: "",
-        });
-
-      })
-      .catch((error) => console.error("Error adding Scholarship:", error));
-  };
 
   const filteredImages = images.filter((image) => {
     const locationMatch = filterLocation
@@ -68,71 +41,10 @@ function Scholarship() {
     return locationMatch && itemMatch;
   });
 
-  const toggleAddScholarshipVisibility = () => {
-    setIsAddScholarshipVisible(!isAddScholarshipVisible);
-    setIsScholarshipVisible(!isScholarshipVisible);
-  };
-
+  
   return (
     <div className="image-gallery h-full  bg-gray-900 p-6">
-      <button
-        onClick={toggleAddScholarshipVisibility}
-        className="bg-green-500 m-2 text-white py-2 px-4 rounded-lg hover:bg-green-600 fixed bottom-10 right-10 p-4"
-      >
-        {isAddScholarshipVisible ? "Hide" : "Add Scholarship Details"}
-      </button>
-      {isAddScholarshipVisible && (
-        <div className="bg-white justify-center rounded-lg shadow-md p-4 flex flex-col">
-          {/* <h2 className="text-xl font-semibold mb-2"></h2> */}
-          <input
-            type="text"
-            name="title"
-            placeholder="Title"
-            value={newScholarship.title}
-            onChange={handleInputChange}
-            className="w-full rounded-md p-2 mb-2"
-          />
-          <input
-            type="text"
-            name="description"
-            placeholder="Description"
-            value={newScholarship.description}
-            onChange={handleInputChange}
-            className="w-full rounded-md p-2 mb-2"
-          />
-          <input
-            type="text"
-            name="benefit"
-            placeholder="Benefits"
-            value={newScholarship.benefit}
-            onChange={handleInputChange}
-            className="w-full rounded-md p-2 mb-2"
-          />
-          <input
-            type="text"
-            name="location"
-            placeholder="Location"
-            value={newScholarship.location}
-            onChange={handleInputChange}
-            className="w-full rounded-md p-2 mb-2"
-          />
-          <input
-            type="text"
-            name="url"
-            placeholder="URL-to-ScholarShip"
-            value={newScholarship.url}
-            onChange={handleInputChange}
-            className="w-full rounded-md p-2 mb-2"
-          />
-          <button
-            onClick={addScholarship}
-            className="bg-green-500 text-white py-2 px-4 rounded-lg text-xl hover:bg-green-600"
-          >
-            Add Scholarship
-          </button>
-        </div>
-      )}
-      {isScholarshipVisible && (
+
         <div>
           <div className=" flex mt-4 mb-4 space-x-4">
 
@@ -170,7 +82,6 @@ function Scholarship() {
             ))}
           </div>
         </div>
-      )}
     </div>
   );
 }

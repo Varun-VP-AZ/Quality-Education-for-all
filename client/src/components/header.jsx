@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
+  const { loginWithRedirect } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { logout } = useAuth0();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -50,6 +54,24 @@ export default function Header() {
           >
             Courses
           </Link>
+          {isAuthenticated ? (
+            <>
+                      <Link
+                      to="/addscholarship"
+                      className="text-sm font-semibold leading-6 text-white"
+                    >
+                      Add Scholarship
+                    </Link>
+                    <Link
+                      to="/addcourses"
+                      className="text-sm font-semibold leading-6 text-white"
+                    >
+                     Add Courses
+                    </Link>
+                    </>
+          ):(<> </>)
+}
+        
           <Link
             to="/aboutus"
             className="text-sm font-semibold leading-6 text-white"
@@ -59,19 +81,32 @@ export default function Header() {
         </Popover.Group>
 
         <div className="">
-          <Link
-            to="/registration"
-            className="text-sm font-semibold leading-6 m-4 text-white"
-          >
-            Sign up
-          </Link>
-
-          <Link
+          {isAuthenticated ? (
+              <button
+                className="mx-1 btn btn-outline-light my-2 my-sm-0"
+                type="submit"
+                onClick={()=>logout({ logoutParams: { returnTo: window.location.origin } })
+                }
+              >
+                Log Out
+              </button>
+          ) : (
+            
+              <p
+                className="mx-1 btn btn-outline-light cursor-pointer my-2 my-sm-0"
+                type="submit"
+                onClick={()=>loginWithRedirect()}
+              >
+                Admin Login
+              </p>
+            
+          )}
+          {/* <Link
             to="/login"
             className="text-sm font-semibold leading-6 text-white"
           >
             Sign In
-          </Link>
+          </Link> */}
         </div>
       </nav>
       <Dialog
