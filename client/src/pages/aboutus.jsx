@@ -29,7 +29,7 @@ export default function Aboutus() {
               About Us
             </div>
             <h2 className="text-xl tracking-tight text-white sm:text-4xl">
-              Making education available for all.
+              Making quality education available for all.
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
               We believe that education is a fundamental right, not a privilege.

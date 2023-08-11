@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/footer";
+import Carousel from "../components/carousel";
 export default function Home() {
   return (
     <div className=" bg-gray-800">
@@ -29,13 +30,12 @@ export default function Home() {
               Making "quality-education" available for all.
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              We believe that education is a fundamental
-              right, not a privilege. We're on a mission to make high-quality
-              education accessible to every individual, regardless of their
-              background, location, or financial situation. Our commitment to
-              this vision has driven us to create a platform that opens the
-              doors to a world of knowledge and empowers individuals to reach
-              their full potential.
+              We believe that education is a fundamental right, not a privilege.
+              We're on a mission to make high-quality education accessible to
+              every individual, regardless of their background, location, or
+              financial situation. Our commitment to this vision has driven us
+              to create a platform that opens the doors to a world of knowledge
+              and empowers individuals to reach their full potential.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
               <Link
@@ -52,14 +52,15 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="relative mt-16 h-80 lg:mt-8">
-            <img
+          <div className="relative w-full lg:mt-8">
+            <Carousel />
+            {/* <img
               className="absolute left-0 top-0 w-[40rem] max-w-none md:shrink-0 rounded-lg pt-24 pr-14"
               src="https://i.dailymail.co.uk/i/pix/2015/05/06/01/285A9AFA00000578-3069290-image-a-1_1430872936399.jpg"
               alt="App screenshot"
               width={1824}
               height={1080}
-            />
+            /> */}
           </div>
         </div>
       </div>
