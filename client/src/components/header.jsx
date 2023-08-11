@@ -101,12 +101,6 @@ export default function Header() {
               </p>
             
           )}
-          {/* <Link
-            to="/login"
-            className="text-sm font-semibold leading-6 text-white"
-          >
-            Sign In
-          </Link> */}
         </div>
       </nav>
       <Dialog
