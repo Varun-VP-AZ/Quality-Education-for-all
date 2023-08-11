@@ -55,7 +55,7 @@ function Forum() {
   </div>
   
 </nav>
-      <div className=" p-20 bg-gray-800">
+      <div className=" p-20 bg-gray-800 h-screen">
         {/* Discussion Threads */}
         <div className="bg-white bg-gray-900shadow-md rounded-lg p-4">
           {/* Single Thread */}

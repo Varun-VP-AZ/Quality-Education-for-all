@@ -49,7 +49,7 @@ function AddScholarship() {
 
 
   return (
-    <div className="image-gallery h-full  bg-gray-900 p-6">
+    <div className="image-gallery h-screen  bg-gray-900 p-6">
         <div className="bg-white justify-center rounded-lg shadow-md p-4 flex flex-col">
           {/* <h2 className="text-xl font-semibold mb-2"></h2> */}
           <input

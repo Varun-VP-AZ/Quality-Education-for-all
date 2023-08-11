@@ -43,7 +43,7 @@ function Scholarship() {
 
   
   return (
-    <div className="image-gallery h-full  bg-gray-900 p-6">
+    <div className="image-gallery h-full p-6">
 
         <div>
           <div className=" flex mt-4 mb-4 space-x-4">

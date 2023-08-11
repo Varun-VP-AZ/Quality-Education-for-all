@@ -72,12 +72,12 @@ function Products() {
   };
 
   return (
-    <div className="bg-gray-900 pt-5 pl-5 pr-5">
+    <div className="= pt-5 pl-5 pr-5">
       <button
         onClick={toggleAddProductVisibility}
         className="bg-green-500 m-2 text-white py-2 px-4 rounded-lg hover:bg-green-600 fixed bottom-10 right-10 p-4"
       >
-        {isAddProductVisible ? "Hide" : "Sell Here"}
+        {isAddProductVisible ? "Hide" : "Donate Here"}
       </button>
       {isAddProductVisible && (
         <div className="bg-white justify-center rounded-lg shadow-md p-4 flex flex-col">
@@ -117,7 +117,7 @@ function Products() {
             onClick={addProduct}
             className="bg-green-500 text-white py-2 px-4 rounded-lg text-xl hover:bg-green-600"
           >
-            Sell Here
+            Donate Here
           </button>
         </div>
       )}
