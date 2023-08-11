@@ -59,7 +59,7 @@ function AddCourse() {
 
 
   return (
-    <div className="image-gallery h-screen justify-center bg-gray-900 p-6 ml-3">
+    <div className="image-gallery h-screen justify-center bg-gray-900 p-6">
         <div className="bg-white justify-center rounded-lg shadow-md p-4 flex flex-col">
           <input
             type="text"

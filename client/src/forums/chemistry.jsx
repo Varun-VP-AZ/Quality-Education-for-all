@@ -6,7 +6,7 @@ const chemistry = () => {
   const [newForum, setNewForum] = useState({
     title: "",
     description: "",
-    author: " ",
+   name: " ",
   });
   useEffect(() => {
     // Fetch data from the MongoDB server
@@ -39,7 +39,7 @@ const chemistry = () => {
         setNewForum({
             title: "",
             description: "",
-            author: " ",
+           name: " ",
         });
       })
       .catch((error) => console.error("Error adding Forum:", error));
