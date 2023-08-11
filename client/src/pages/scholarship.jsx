@@ -43,7 +43,7 @@ function Scholarship() {
   return (
     <div className="image-gallery h-full p-6">
       <div>
-        <div className=" flex items-center justify-center">
+        <div className=" flex items-center justify-center mb-7">
           <input
             type="text"
             placeholder="Search by item"
@@ -56,13 +56,15 @@ function Scholarship() {
           {filteredImages.map((image, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-md p-4 flex flex-col justify-between"
+              className="bg-white rounded-lg shadow-md p-4 flex flex-col justify-between ml-4 mr-4 mt-4 mb-4 overflow-hidden"
             >
               <div className="mt-2">
-                <h2 className="text-lg font-semibold mb-1">{image.title}</h2>
-                <p className="text-gray-700 mb-2">{image.description}</p>
+                <h2 className="text-2xl font-semibold mb-1">{image.title}</h2>
+                <p className=" text-lg text-gray-700 mb-2">
+                  {image.description}
+                </p>
                 <div className="flex justify-between items-center">
-                  <h2 className="text-lg font-semibold">{image.benefit}</h2>
+                  <h2 className="text-xl font-semibold">{image.benefit}</h2>
 
                   {/* <h2 className="text-lg text-gray-600">{image.location}</h2> */}
                   <a
